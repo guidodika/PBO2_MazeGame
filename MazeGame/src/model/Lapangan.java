@@ -10,5 +10,7 @@ package model;
  * @author user only
  */
 public class Lapangan {
-    
+    public static void main(String[] args) {
+        
+    }
 }
