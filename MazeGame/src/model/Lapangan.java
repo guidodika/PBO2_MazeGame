@@ -11,6 +11,6 @@ package model;
  */
 public class Lapangan {
     public static void main(String[] args) {
-        Scanner input = Scanner(System.in);
+       
     }
 }

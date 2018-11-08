@@ -44,9 +44,9 @@ public class Tempat {
         this.isi = "";
         int data;
         int baris = 0; int  kolom = 0;
-        char bacakarakter = 0;
-        boolean hasil = false;
-        Tempat point = new Tempat();
+//        char bacakarakter = 0;
+//        boolean hasil = false;
+//        Tempat point = new Tempat();
         
         try {
        fis = new FileInputStream(file);
