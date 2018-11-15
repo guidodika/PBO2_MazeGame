@@ -18,9 +18,9 @@ import view.TempatPanel;
 public class TestGame1 {
     public static void main(String[] args) {
         // buat 1 sel
-        Sel sel = new Sel(50, 50,20,20, '@', Color.RED);
+        Sel sel = new Sel(0, 1,20,20, '@', Color.RED);
         // buat 1 sel
-        Sel sel2 = new Sel(50, 80,20,20, '#', Color.BLUE);
+        Sel sel2 = new Sel(2, 1,20,20, '#', Color.RED);
         // buat 1 tempat dan tambahkan sel ke tempat
         Tempat tempat = new Tempat();
         tempat.tambahSel(sel);

@@ -12,10 +12,11 @@ import java.awt.Color;
  * @author user only
  */
 public class Sel {
-    private int posisiX; // nomor baris, dimulai dari nol (0)
-    private int posisiY; // nomor kolom, dimulai dari nol (0)
-    private int lebar;
-    private int tinggi;
+
+    private int baris=0;
+    private int kolom=0;
+    private int lebar=25;
+    private int tinggi=25;
 
     private char nilai;
 
@@ -24,36 +25,35 @@ public class Sel {
     public Sel() {
     }
 
-    public Sel(int posisiX, int posisiY, char nilai) {
-        this.posisiX = posisiX;
-        this.posisiY = posisiY;
+    public Sel(int baris, int kolom, char nilai) {
+        this.baris = baris;
+        this.kolom = kolom;
         this.nilai = nilai;
     }
 
-    public Sel(int posisiX, int posisiY, char nilai, Color warna) {
-        this.posisiX = posisiX;
-        this.posisiY = posisiY;
+    public Sel(int baris, int kolom, char nilai, Color warna) {
+        this.baris = baris;
+        this.kolom = kolom;
         this.nilai = nilai;
         this.warna = warna;
     }
 
-    public Sel(int posisiX, int posisiY, int lebar, int tinggi, char nilai, Color warna) {
-        this.posisiX = posisiX;
-        this.posisiY = posisiY;
+    public Sel(int baris, int kolom, int lebar, int tinggi, char nilai, Color warna) {
+        this.baris = baris;
+        this.kolom = kolom;
         this.lebar = lebar;
         this.tinggi = tinggi;
         this.nilai = nilai;
         this.warna = warna;
     }
 
-    
     /**
      * Fungsi mengecek sel ada di batas kiri
      *
      * @return
      */
     public boolean isBatasKiri() {
-        if (posisiX <= 0) {
+        if (kolom * lebar <= 0) {
             return true;
         } else {
             return false;
@@ -67,7 +67,7 @@ public class Sel {
      * @return
      */
     public boolean isBatasKanan() {
-        if (posisiX + lebar < Tempat.batasKanan) {
+        if (kolom * lebar + lebar < Tempat.batasKanan) {
             return false;
         } else {
             return true;
@@ -79,7 +79,20 @@ public class Sel {
      */
     public void geserKanan() {
         if (isBatasKanan() == false) {
-            posisiX = posisiX + lebar;
+            kolom++;
+        }else{
+            kolom--;
+        }
+    }
+
+    /**
+     * Fungsi untuk menggeser sel ke kanan
+     */
+    public void geserKiri() {
+        if (isBatasKiri() == false) {
+            kolom--;
+        }else {
+            kolom++;
         }
     }
 
@@ -87,42 +100,105 @@ public class Sel {
      * Fungsi untuk mengecek sel ada di batas atas
      */
     public boolean isBatasAtas() {
-        return false;
+          if (baris * tinggi > 0) {
+            return false;
+        }else{
+        return true;
     }
-
+    }
     /**
      * Fungsi untuk mengecek sel ada di batas bawah
      */
     public boolean isBatasBawah() {
-        return false;
+        if (baris * tinggi + tinggi < Tempat.batasBawah) {
+            return false;
+        }else {
+        return true;
+    }}
+    
+    /**
+     * Fungsi untuk geser atas
+     */
+    public void geserAtas(){
+        if (isBatasAtas() == false) {
+            baris--;
+        }
+    }
+    
+    /**
+     * Fungsi untuk geser bawah
+     */
+    public void geserBawah(){
+        if (isBatasBawah() == false) {
+            baris++;
+        }else 
+        { baris += 0;
+    }}
+    
+    public void SerongkananAtas(){
+        if (isBatasAtas() == false && isBatasKanan() == false) {
+            baris--;
+            kolom ++;
+        }else {
+            baris++;
+            kolom--;
+        }
+    }
+     public void SerongkiriAtas(){
+        if (isBatasAtas() == false && isBatasKiri()== false) {
+            baris--;
+            kolom --;
+        }else {
+            baris++;
+            kolom++;
+        }
+    }
+     
+       public void SerongkananBawah(){
+        if (isBatasBawah()== false && isBatasKanan() == false) {
+            baris++;
+            kolom++;
+        }else {
+            baris--;
+            kolom--;
+        }
+    }
+       
+       public void SerongkiriBawah(){
+        if (isBatasBawah()== false && isBatasKiri()== false) {
+            baris++;
+            kolom--;
+        }else {
+            baris--;
+            kolom++;
+        }
+    }
+    /**
+     * @return the baris
+     */
+    public int getBaris() {
+        return baris;
     }
 
     /**
-     * @return the posisiX
+     * @param baris the baris to set
      */
-    public int getPosisiX() {
-        return posisiX;
+    public void setBaris(int baris) {
+        this.baris = baris;
     }
 
     /**
-     * @param posisiX the posisiX to set
+     * @return the kolom
      */
-    public void setPosisiX(int posisiX) {
-        this.posisiX = posisiX;
+    public int getKolom() {
+        return kolom;
     }
 
     /**
-     * @return the posisiY
+     * @param kolom the kolom to set
      */
-    public int getPosisiY() {
-        return posisiY;
-    }
-
-    /**
-     * @param posisiY the posisiY to set
-     */
-    public void setPosisiY(int posisiY) {
-        this.posisiY = posisiY;
+    public void setKolom(int kolom) {
+        this.kolom = kolom;
     }
 
     /**

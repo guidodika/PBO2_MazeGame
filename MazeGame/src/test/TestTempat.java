@@ -25,10 +25,10 @@ public class TestTempat {
             System.out.println(tempat.getIsi());
             if(tempat.getDaftarSel()!=null){
                 for (int i = 0; i < tempat.getDaftarSel().size(); i++) {
-                    // menampilkan nilai posisiX,posisiY dan nilai
+                    // menampilkan nilai posisi Baris,posisi Kolom dan nilai
                     System.out.println(
-                            tempat.getDaftarSel().get(i).getPosisiX()+","
-                            +tempat.getDaftarSel().get(i).getPosisiY()+","
+                            tempat.getDaftarSel().get(i).getBaris()+","
+                            +tempat.getDaftarSel().get(i).getKolom()+","
                             +tempat.getDaftarSel().get(i).getNilai());
                     
                 }

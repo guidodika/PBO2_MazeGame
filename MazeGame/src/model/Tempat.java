@@ -33,7 +33,6 @@ public class Tempat {
     }
     
     
-    
     /**
      * Fungsi pembaca file konfigurasi.
      * Hasil pembacaan file akan disimpan di atribut 'isi' dan juga di atribut daftarSel
@@ -78,6 +77,15 @@ public class Tempat {
         daftarSel.add(sel);
     }
 
+    /**
+     * Fungsi hapus sel.
+     * Sel yang paling akhir diremove dari daftar sel.
+     */
+    public void hapusSel(){
+        if(!daftarSel.isEmpty()){
+            daftarSel.remove(daftarSel.size()-1);
+        }
+    }
     /**
      * @return the tinggi
      */
