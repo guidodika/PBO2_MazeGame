@@ -6,6 +6,7 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Image;
 
 /**
  *
@@ -13,10 +14,12 @@ import java.awt.Color;
  */
 public class Sel {
 
-    private int baris=0;
-    private int kolom=0;
+    int baris=0;
+    int kolom=0;
     private int lebar=25;
     private int tinggi=25;
+    private Image image;
+    private int jarak = 20;
 
     private char nilai;
 
@@ -24,11 +27,19 @@ public class Sel {
 
     public Sel() {
     }
+    
+    public Image GetImage(){
+        return image;
+    }
+    
+    public void setImage(Image image){
+        this.image = image;
+    }
 
-    public Sel(int baris, int kolom, char nilai) {
+    public Sel(int baris, int kolom) {
         this.baris = baris;
         this.kolom = kolom;
-        this.nilai = nilai;
+        
     }
 
     public Sel(int baris, int kolom, char nilai, Color warna) {
@@ -52,10 +63,10 @@ public class Sel {
      *
      * @return
      */
-    public boolean isBatasKiri() {
-        if (kolom * lebar <= 0) {
+    public boolean isBatasKiri(Sel objek) {
+        if (((this.getBaris()-jarak) == objek.getBaris())&& (this.getKolom() == objek.getKolom())) {
             return true;
-        } else {
+        }else {
             return false;
         }
 
@@ -66,113 +77,35 @@ public class Sel {
      *
      * @return
      */
-    public boolean isBatasKanan() {
-        if (kolom * lebar + lebar < Tempat.batasKanan) {
-            return false;
-        } else {
+    public boolean isBatasKanan(Sel Objek) {
+        if (((this.getBaris() + jarak == Objek.getBaris()) && (this.getKolom()) == Objek.getKolom())) {
             return true;
-        }
-    }
-
-    /**
-     * Fungsi untuk menggeser sel ke kanan
-     */
-    public void geserKanan() {
-        if (isBatasKanan() == false) {
-            kolom++;
-        }else{
-            kolom--;
-        }
-    }
-
-    /**
-     * Fungsi untuk menggeser sel ke kanan
-     */
-    public void geserKiri() {
-        if (isBatasKiri() == false) {
-            kolom--;
+            
         }else {
-            kolom++;
+            return false;
         }
     }
-
     /**
      * Fungsi untuk mengecek sel ada di batas atas
      */
-    public boolean isBatasAtas() {
-          if (baris * tinggi > 0) {
+    public boolean isBatasAtas(Sel Objek) {
+        if (((this.getKolom() - jarak) == Objek.getKolom()) && (this.getBaris() == Objek.getBaris())) {
+            return true;
+        }else {
             return false;
-        }else{
-        return true;
-    }
+        }
     }
     /**
      * Fungsi untuk mengecek sel ada di batas bawah
      */
-    public boolean isBatasBawah() {
-        if (baris * tinggi + tinggi < Tempat.batasBawah) {
+    public boolean isBatasBawah(Sel Objek) {
+        if (((this.getKolom() + jarak) == Objek.getKolom()) && (this.getBaris()) == Objek.getBaris()) {
+            return true;
+        }else{
             return false;
-        }else {
-        return true;
-    }}
-    
-    /**
-     * Fungsi untuk geser atas
-     */
-    public void geserAtas(){
-        if (isBatasAtas() == false) {
-            baris--;
         }
     }
     
-    /**
-     * Fungsi untuk geser bawah
-     */
-    public void geserBawah(){
-        if (isBatasBawah() == false) {
-            baris++;
-        }else 
-        { baris += 0;
-    }}
-    
-    public void SerongkananAtas(){
-        if (isBatasAtas() == false && isBatasKanan() == false) {
-            baris--;
-            kolom ++;
-        }else {
-            baris++;
-            kolom--;
-        }
-    }
-     public void SerongkiriAtas(){
-        if (isBatasAtas() == false && isBatasKiri()== false) {
-            baris--;
-            kolom --;
-        }else {
-            baris++;
-            kolom++;
-        }
-    }
-     
-       public void SerongkananBawah(){
-        if (isBatasBawah()== false && isBatasKanan() == false) {
-            baris++;
-            kolom++;
-        }else {
-            baris--;
-            kolom--;
-        }
-    }
-       
-       public void SerongkiriBawah(){
-        if (isBatasBawah()== false && isBatasKiri()== false) {
-            baris++;
-            kolom--;
-        }else {
-            baris--;
-            kolom++;
-        }
-    }
     /**
      * @return the baris
      */

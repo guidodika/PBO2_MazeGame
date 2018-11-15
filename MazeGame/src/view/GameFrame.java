@@ -21,6 +21,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import model.Sel;
+import model.Tempat;
 
 /**
  *
@@ -73,6 +74,13 @@ public class GameFrame extends JFrame {
         menuBar.add(gameMenu);
         setJMenuBar(menuBar);
 
+        
+        bacaKonfigurasiMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               
+            }
+        });
         //action perform for exitMenuItem
         exitMenuItem.addActionListener(new ActionListener() {
             @Override
@@ -95,76 +103,76 @@ public class GameFrame extends JFrame {
         this.pindahKananButton = new JButton("Kanan");
         southPanel.add(pindahKananButton);
         
-        pindahKananButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pindahKanan();
-            }
-        });
-        
-        this.pindahKiriButton = new JButton("Kiri");
-        southPanel.add(pindahKiriButton);
-        pindahKiriButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pindahkiri();
-            }
-        });
-        
-        this.pindahAtasButton = new JButton("Atas");
-        southPanel.add(pindahAtasButton);
-        pindahAtasButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pindahAtas();
-            }
-        });
-        
-        this.pindahBawahButton = new JButton("Bawah");
-        southPanel.add(pindahBawahButton);
-        pindahBawahButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pindahBawah();
-            }
-        });
-        
-        this.serongKananUp = new JButton("S_R_Up");
-        southPanel.add(serongKananUp);
-        serongKananUp.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Serong_kananAtas();
-            }
-        });
-        
-          this.serongkiriUp = new JButton("S_L_Up");
-        southPanel.add(serongkiriUp);
-        serongkiriUp.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Serong_KiriAtas();
-            }
-        });
-        
-          this.serongkiridown = new JButton("S_L_down");
-        southPanel.add(serongkiridown);
-        serongkiridown.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Serong_KiriBawah();
-            }
-        });
+//        pindahKananButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                pindahKanan();
+//            }
+//        });
+//        
+//        this.pindahKiriButton = new JButton("Kiri");
+//        southPanel.add(pindahKiriButton);
+//        pindahKiriButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                pindahkiri();
+//            }
+//        });
+//        
+//        this.pindahAtasButton = new JButton("Atas");
+//        southPanel.add(pindahAtasButton);
+//        pindahAtasButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                pindahAtas();
+//            }
+//        });
+//        
+//        this.pindahBawahButton = new JButton("Bawah");
+//        southPanel.add(pindahBawahButton);
+//        pindahBawahButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                pindahBawah();
+//            }
+//        });
+//        
+//        this.serongKananUp = new JButton("S_R_Up");
+//        southPanel.add(serongKananUp);
+//        serongKananUp.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                Serong_kananAtas();
+//            }
+//        });
+//        
+//          this.serongkiriUp = new JButton("S_L_Up");
+//        southPanel.add(serongkiriUp);
+//        serongkiriUp.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                Serong_KiriAtas();
+//            }
+//        });
+//        
+//          this.serongkiridown = new JButton("S_L_down");
+//        southPanel.add(serongkiridown);
+//        serongkiridown.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                Serong_KiriBawah();
+//            }
+//        });
          
-          this.serongkanandown = new JButton("S_R_down");
-        southPanel.add(serongkanandown);
-        serongkanandown.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Serong_KananBawah();
-            }
-        });
-        this.tambahButton = new JButton("tambahBola");
+//          this.serongkanandown = new JButton("S_R_down");
+//        southPanel.add(serongkanandown);
+//        serongkanandown.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                Serong_KananBawah();
+//            }
+//        });
+//        this.tambahButton = new JButton("tambahBola");
         southPanel.add(tambahButton);
         tambahButton.addActionListener(new ActionListener() {
             @Override
@@ -209,64 +217,64 @@ public class GameFrame extends JFrame {
     /**
      * Fungsi untuk memindahkan sel dan menggambar ulang
      */
-    public void pindahKanan() {
-        // posisiX seluruh sel ditambah 20
-        // sehingga sel akan terlihat bergerak ke kanan
-        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
-            // set posisiX yang baru
-            getTempatPanel().getTempat().getDaftarSel().get(i).geserKanan();
-        }
-        // gambar ulang tempat Panel
-        getTempatPanel().repaint();
-    }
-    
-    public void pindahkiri(){
-        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
-            getTempatPanel().getTempat().getDaftarSel().get(i).geserKiri();
-        }
-        getTempatPanel().repaint();
-    }
-    
-    public void pindahAtas(){
-         for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
-            getTempatPanel().getTempat().getDaftarSel().get(i).geserAtas();
-        }
-        getTempatPanel().repaint();
-    }
-    
-    public void pindahBawah(){
-        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
-            getTempatPanel().getTempat().getDaftarSel().get(i).geserBawah();
-        }
-        getTempatPanel().repaint();
-    }
-     public void Serong_kananAtas(){
-        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
-            getTempatPanel().getTempat().getDaftarSel().get(i).SerongkananAtas();
-        }
-        getTempatPanel().repaint();
-    }
-     
-      public void Serong_KiriAtas(){
-        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
-            getTempatPanel().getTempat().getDaftarSel().get(i).SerongkiriAtas();
-        }
-        getTempatPanel().repaint();
-    }
-
-      public void Serong_KananBawah(){
-        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
-            getTempatPanel().getTempat().getDaftarSel().get(i).SerongkananBawah();
-        }
-        getTempatPanel().repaint();
-    }
-      
-       public void Serong_KiriBawah(){
-        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
-            getTempatPanel().getTempat().getDaftarSel().get(i).SerongkiriBawah();
-        }
-        getTempatPanel().repaint();
-    }
+//    public void pindahKanan() {
+//        // posisiX seluruh sel ditambah 20
+//        // sehingga sel akan terlihat bergerak ke kanan
+//        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+//            // set posisiX yang baru
+//            getTempatPanel().getTempat().getDaftarSel().get(i).geserKanan();
+//        }
+//        // gambar ulang tempat Panel
+//        getTempatPanel().repaint();
+//    }
+//    
+//    public void pindahkiri(){
+//        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+//            getTempatPanel().getTempat().getDaftarSel().get(i).geserKiri();
+//        }
+//        getTempatPanel().repaint();
+//    }
+//    
+//    public void pindahAtas(){
+//         for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+//            getTempatPanel().getTempat().getDaftarSel().get(i).geserAtas();
+//        }
+//        getTempatPanel().repaint();
+//    }
+//    
+//    public void pindahBawah(){
+//        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+//            getTempatPanel().getTempat().getDaftarSel().get(i).geserBawah();
+//        }
+//        getTempatPanel().repaint();
+//    }
+//     public void Serong_kananAtas(){
+//        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+//            getTempatPanel().getTempat().getDaftarSel().get(i).SerongkananAtas();
+//        }
+//        getTempatPanel().repaint();
+//    }
+//     
+//      public void Serong_KiriAtas(){
+//        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+//            getTempatPanel().getTempat().getDaftarSel().get(i).SerongkiriAtas();
+//        }
+//        getTempatPanel().repaint();
+//    }
+//
+//      public void Serong_KananBawah(){
+//        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+//            getTempatPanel().getTempat().getDaftarSel().get(i).SerongkananBawah();
+//        }
+//        getTempatPanel().repaint();
+//    }
+//      
+//       public void Serong_KiriBawah(){
+//        for (int i = 0; i < getTempatPanel().getTempat().getDaftarSel().size(); i++) {
+//            getTempatPanel().getTempat().getDaftarSel().get(i).SerongkiriBawah();
+//        }
+//        getTempatPanel().repaint();
+//    }
     /**
      * @return the tempatPanel
      */
