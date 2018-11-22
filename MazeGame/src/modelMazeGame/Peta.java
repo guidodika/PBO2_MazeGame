@@ -119,56 +119,57 @@ public class Peta extends JPanel {
                 if (in[0].equalsIgnoreCase("u")) {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[i])); i++) {
                         if (cekObjekTabrakTembok(player, "u")) {
-                            return;    
+                            return;
                         } else {
                             player.Gerak(0, -jarak);
                             repaint();
                         }
 
                     }
-                } else if(in[0].equalsIgnoreCase("d")){
+                } else if (in[0].equalsIgnoreCase("d")) {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[i])); i++) {
                         if (cekObjekTabrakTembok(player, "d")) {
-                            return;    
+                            return;
                         } else {
                             player.Gerak(0, jarak);
                             repaint();
                         }
-                        
+
                     }
-                    
-                } else if(in[0].equalsIgnoreCase("r")){
+
+                } else if (in[0].equalsIgnoreCase("r")) {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[i])); i++) {
                         if (cekObjekTabrakTembok(player, "r")) {
-                            return;    
+                            return;
                         } else {
-                            player.Gerak(jarak,0);
+                            player.Gerak(jarak, 0);
                             repaint();
                         }
-                        
+
                     }
-            } else if(in[0].equalsIgnoreCase("d")){
+                } else if (in[0].equalsIgnoreCase("d")) {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[i])); i++) {
                         if (cekObjekTabrakTembok(player, "u")) {
-                            return;    
+                            return;
                         } else {
                             player.Gerak(0, jarak);
                             repaint();
                         }
-                        
+
                     }
-            
-                } else if(in[0].equalsIgnoreCase("l")){
+
+                } else if (in[0].equalsIgnoreCase("l")) {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[i])); i++) {
                         if (cekObjekTabrakTembok(player, "u")) {
-                            return;    
+                            return;
                         } else {
                             player.Gerak(0, jarak);
                             repaint();
                         }
-                        
+
                     }
-    }
+                }
+            }
         }
     }
 
@@ -212,9 +213,5 @@ public class Peta extends JPanel {
         }
         return bantu;
     }
-    
-    
-    
-    
-    
+
 }
