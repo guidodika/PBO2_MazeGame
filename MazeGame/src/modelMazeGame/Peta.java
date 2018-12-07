@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+//import model.pintu;
 
 /**
  *
@@ -32,6 +33,11 @@ public class Peta extends JPanel {
     private int lebar = 0;
     private int tinggi = 0;
     private int jarak = 20;
+    
+//    public static int batasKanan;
+//    public static int batasBawah;
+    
+    private ArrayList allperintah = new ArrayList();
 
     public Peta(File file) {
         setPeta(file);
@@ -47,6 +53,7 @@ public class Peta extends JPanel {
                 int y = 0;
                 Tembok wall;
                 Lubang hole;
+//                pintu Gate;
                 int data;
                 while ((data = input.read()) != -1) {
                     char item = (char) data;
@@ -92,7 +99,7 @@ public class Peta extends JPanel {
             }
 
         }
-
+ 
     }
 
     /**
@@ -114,7 +121,7 @@ public class Peta extends JPanel {
         if (in.length > 2) {
             JOptionPane.showMessageDialog(null, "Jumlah kata lebih dari 2");
         } else if (in.length == 2) {
-            if (in[0].matches("xxx")) {
+            if (in[0].matches("[udrlz]")) {
                 perintah.add(input);
                 if (in[0].equalsIgnoreCase("u")) {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[i])); i++) {
@@ -213,5 +220,14 @@ public class Peta extends JPanel {
         }
         return bantu;
     }
+
+    public String getperintahtext() {
+    String bantu = "";
+        for (int i = 0; i < allperintah.size(); i++) {
+            bantu = bantu + allperintah.get(i)+" ";
+            
+        }
+        return bantu;
+        }
 
 }
