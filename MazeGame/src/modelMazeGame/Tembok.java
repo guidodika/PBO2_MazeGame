@@ -17,7 +17,7 @@ public class Tembok extends Pixel {
     public Tembok(int x, int y){
         super (x,y);
         
-        URL location = this.getClass().getResource("");
+        URL location = this.getClass().getResource("tembok.png");
         ImageIcon g = new ImageIcon(location);
         Image image = g.getImage();
         this.setImage(image);
