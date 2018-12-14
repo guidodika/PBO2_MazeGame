@@ -17,7 +17,7 @@ public class Lubang extends Pixel{
     public Lubang (int x, int y){
         super(x,y);
         
-        URL location = this.getClass().getResource("");
+        URL location = this.getClass().getResource("pintu.png");
         ImageIcon img = new ImageIcon(location);
         Image image = img.getImage();
         this.setImage(image);

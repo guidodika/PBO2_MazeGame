@@ -17,7 +17,7 @@ public class Pemain extends Pixel {
     public Pemain (int x, int y){
         super (x,y);
         
-        URL location = this.getClass().getResource("");
+        URL location = this.getClass().getResource("pemain.jpg");
         ImageIcon g = new ImageIcon(location);
         Image image = g.getImage();
         this.setImage(image);

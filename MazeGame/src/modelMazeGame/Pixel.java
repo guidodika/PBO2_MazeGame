@@ -13,8 +13,8 @@ import java.awt.Image;
  */
 public class Pixel {
     
-    private int x;
-    private int y;
+    private int x=0;
+    private int y=0;
     private Image image;
     private int jarak = 20;
 

@@ -5,14 +5,17 @@
  */
 package view;
 
-import model.Tempat;
+import java.io.File;
+import javax.swing.JFileChooser;
+import modelMazeGame.Peta;
 
 /**
  *
  * @author Lenovo
  */
 public class gamegame extends javax.swing.JFrame {
-
+Peta peta;
+File file;
     /**
      * Creates new form gamegame
      */
@@ -31,14 +34,18 @@ public class gamegame extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jFileChooser1 = new javax.swing.JFileChooser();
+        jFileChooser3 = new javax.swing.JFileChooser();
+        perintahlabel = new javax.swing.JLabel();
+        perintahtext = new javax.swing.JTextField();
+        outputlabel = new javax.swing.JLabel();
+        jFileChooser2 = new javax.swing.JFileChooser();
+        panelgame = new javax.swing.JPanel();
+        areaoutput = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        bacapeta = new javax.swing.JMenuItem();
+        exit = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -46,48 +53,52 @@ public class gamegame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("perintah");
+        perintahlabel.setText("perintah");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 157, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jButton1.setText("ok");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        perintahtext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                perintahtextActionPerformed(evt);
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        outputlabel.setText("output");
+
+        javax.swing.GroupLayout panelgameLayout = new javax.swing.GroupLayout(panelgame);
+        panelgame.setLayout(panelgameLayout);
+        panelgameLayout.setHorizontalGroup(
+            panelgameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelgameLayout.setVerticalGroup(
+            panelgameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 193, Short.MAX_VALUE)
+        );
+
+        areaoutput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                areaoutputActionPerformed(evt);
             }
         });
 
         jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        bacapeta.setText("bacapeta");
+        bacapeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bacapetaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(bacapeta);
+
+        exit.setText("exit");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(exit);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -95,38 +106,75 @@ public class gamegame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelgame, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
-                .addGap(0, 145, Short.MAX_VALUE))
+                        .addGap(113, 113, 113)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(areaoutput, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(perintahtext, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(outputlabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(perintahlabel)))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1)))
+                .addComponent(panelgame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(perintahlabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(perintahtext, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(outputlabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(areaoutput, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void perintahtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perintahtextActionPerformed
+       peta.PerintahGerak(perintahtext.getText());
+       areaoutput.setText(peta.getperintahtext());
+       perintahtext.setText("");
        
-    }//GEN-LAST:event_jButton1ActionPerformed
+       
+    }//GEN-LAST:event_perintahtextActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-       
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitActionPerformed
+
+    private void bacapetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bacapetaActionPerformed
+    int returnval = jFileChooser1.showOpenDialog(this);
+        if (returnval == JFileChooser.APPROVE_OPTION) {
+            file = jFileChooser1.getSelectedFile();
+            peta = new Peta(file);
+            panelgame.add(peta);
+            peta.setSize(peta.getLebar(), peta.getTinggi());
+            
+            int lebar = panelgame.getWidth();
+            int tinggi = panelgame.getHeight();
+            
+            int x = (lebar - peta.getLebar())/2;
+            int y = (tinggi - peta.getTinggi())/2;
+            peta.setLocation(x, y);
+            
+            
+        }
+        
+    }//GEN-LAST:event_bacapetaActionPerformed
+
+    private void areaoutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaoutputActionPerformed
+        peta.PerintahGerak(perintahtext.getText());
+    }//GEN-LAST:event_areaoutputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,15 +212,19 @@ public class gamegame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField areaoutput;
+    private javax.swing.JMenuItem bacapeta;
+    private javax.swing.JMenuItem exit;
+    private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JFileChooser jFileChooser2;
+    private javax.swing.JFileChooser jFileChooser3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel outputlabel;
+    private javax.swing.JPanel panelgame;
+    private javax.swing.JLabel perintahlabel;
+    private javax.swing.JTextField perintahtext;
     // End of variables declaration//GEN-END:variables
 }
