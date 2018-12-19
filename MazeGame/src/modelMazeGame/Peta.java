@@ -28,6 +28,7 @@ public class Peta extends JPanel {
     private ArrayList arrtembok = new ArrayList();
     private ArrayList arrlubang = new ArrayList();
     private ArrayList arrmap = new ArrayList();
+    private ArrayList undo = new ArrayList();
     private File AlamatPeta;
     private Pemain player;
     private int lebar = 0;
@@ -124,7 +125,7 @@ public class Peta extends JPanel {
                 if (in[0].equalsIgnoreCase("u")) {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[1])); i++) {
                         if (cekObjekTabrakTembok(player, "u")) {
-                            return;
+                            return ;
                         } else {
                             player.Gerak(0, -jarak);
                             repaint();
@@ -134,7 +135,7 @@ public class Peta extends JPanel {
                 } else if (in[0].equalsIgnoreCase("d")) {
                     for (int i = 0; i < Integer.parseInt(String.valueOf(in[1])); i++) {
                         if (cekObjekTabrakTembok(player, "d")) {
-                            return;
+                            return ;
                         } else {
                             player.Gerak(0, jarak);
                             repaint();
@@ -173,6 +174,7 @@ public class Peta extends JPanel {
         }else {
             JOptionPane.showMessageDialog(null, "kata hanya satu");
         }
+       
     }
 
     private boolean cekObjekTabrakTembok(Pixel pemain, String input) {
